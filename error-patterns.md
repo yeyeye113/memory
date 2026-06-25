@@ -35,6 +35,16 @@ metadata:
 - **根因**: 不确定用户水平，宁多勿少
 - **纠正**: 先结论一句话，细节用折叠/列表，用户追问再展开
 
+### [E004] Hook schema 格式错误
+- **症状**: settings.json hooks 配置被验证拒绝
+- **根因**: 直接写 `"Stop": [{command: ...}]`，缺少 matcher 嵌套
+- **纠正**: 必须是 `"Stop": [{matcher: "", hooks: [{type, command}]}]` 格式
+
+### [E005] 文件名含连字符导致 Python 导入失败
+- **症状**: `from health-check import ...` 报 SyntaxError
+- **根因**: Python 模块名不能含连字符
+- **纠正**: 脚本文件名用下划线 `health_check.py`
+
 ## 已修复规则
 
 （纠正成功 3 次后移到这里，不再每次检查）

@@ -39,6 +39,21 @@ metadata:
 |---------|------|------|------|
 | P01 | ai漫剧 | ~/Desktop/ai漫剧/ | manga, ai, production |
 | P02 | aif辅助 | ~/Desktop/aif辅助/ | agents, skills, workflow |
+| P03 | self-evolution-demo | ~/Desktop/self-evolution-demo/ | tools, memory, system |
+
+### 工具脚本 (self-evolution-demo/)
+| 节点 ID | 工具 | 功能 | 标签 |
+|---------|------|------|------|
+| T01 | health_check.py | 记忆一致性检查 | health, validation |
+| T02 | notepad_sync.py | 记事本衰减+分类+冲突 | notepad, sync |
+| T03 | cross_query.py | 跨系统联合查询 | search, query |
+| T04 | timeline.py | 变更历史追踪 | history, timeline |
+| T05 | memory_backup.py | git 自动备份 | backup, git |
+| T06 | preference_learner.py | 用户偏好学习 | preference, learning |
+| T07 | auto_learner.py | 知识缺口→学习资源 | gaps, recommendation |
+| T08 | hook_stop.py | Stop hook — 自动健康检查 | hook, automation |
+| T09 | hook_prompt.py | UserPromptSubmit hook — 轻量检查 | hook, automation |
+| T10 | main.py | 主控脚本 — 一键入口 | controller, cli |
 
 ## 关联边
 
@@ -48,6 +63,14 @@ metadata:
 - N01 (hook协议) → M02 (cache-keepalive): hook 保活机制依赖 JSON 协议
 - N04 (OKLCH) → N02 (UI Showcase): 颜色空间是 UI 效果的底层标准
 - N05 (五层模型) → M06 (知识图谱): 五层模型是知识图谱的理论基础
+
+### 工具关联
+- T08 (hook_stop) → T01 (health_check): Stop hook 自动跑健康检查
+- T09 (hook_prompt) → T01 (health_check): UserPromptSubmit hook 轻量检查
+- T10 (main) → T01-T09: 主控脚本整合所有工具
+- T03 (cross_query) → M06 (knowledge_graph): 跨系统查询基于图谱索引
+- T06 (preference) → M07 (experience_feedback): 偏好学习扩展经验回流
+- T07 (auto_learner) → M08 (metacognition): 自动推荐填补知识缺口
 
 ### 学习关联
 - M03 (session-learnings) → M04 (error-patterns): 教训提炼为错误模式

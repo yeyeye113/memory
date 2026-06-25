@@ -22,6 +22,8 @@ metadata:
 - [2026-06-25] settings.json 可能被外部重置 — 丢失 hooks/UserPromptSubmit/Stop 配置，Notification 恢复了但其他没配
 - [2026-06-25] Puppeteer 没装 Chrome 不可用 — 要截图先 npx puppeteer browsers install chrome
 - [2026-06-26] 交易预测数据被污染 — 51%准确率的脏数据要果断删，不保留垃圾知识
+- [2026-06-26] settings.json hooks 格式 — 必须是 `{matcher, hooks:[...]}` 嵌套，不是直接放 command
+- [2026-06-26] health-check 死链误判 — `../Desktop/xxx.md` 是跨目录引用，不算死链，需排除含 `..` 的路径
 
 ## 有效模式 (从成功中学)
 
