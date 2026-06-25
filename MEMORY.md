@@ -1,0 +1,10 @@
+- [Vibe Coding Style](vibe-coding-style.md) — 编码风格、技术栈、行为准则
+- [Cache Keepalive](cache-keepalive.md) — 4 分钟缓存保活心跳，防 5 分钟 TTL 过期
+- [Session Learnings](session-learnings.md) — 会话经验捕获索引，每次提炼 1-3 条
+- [Error Patterns](error-patterns.md) — 常犯错误模式库，自我纠正规则
+- [Effective Patterns](effective-patterns.md) — 高效工作模式库，复用好方法
+- [AI Notepad](../Desktop/AI记事本.md) — 桌面记事本，记录好方向好方案
+- [Knowledge Graph](knowledge-graph.md) — 知识图谱索引，所有知识源的关联关系
+- [Experience Feedback](experience-feedback.md) — 经验回流系统，置信度追踪+决策档案
+- [Metacognition](metacognition.md) — 元认知系统，知识缺口检测+表现评估
+- [Notepad Schema](notepad-schema.md) — AI 记事本结构定义，自动分类+衰减机制
