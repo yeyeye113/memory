@@ -8,3 +8,4 @@
 - [Experience Feedback](experience-feedback.md) — 经验回流系统，置信度追踪+决策档案
 - [Metacognition](metacognition.md) — 元认知系统，知识缺口检测+表现评估
 - [Notepad Schema](notepad-schema.md) — AI 记事本结构定义，自动分类+衰减机制
+- [Software Core Rules](software-core-rules.md) — 软件开发核心指令：不改核心配置、冲突问主人、迭代不越界
