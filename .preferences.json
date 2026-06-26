@@ -1,0 +1,42 @@
+{
+  "feedback_log": [
+    {
+      "timestamp": "2026-06-26T03:17:22.991305",
+      "sentiment": "正面",
+      "description": "仪表盘很好用"
+    },
+    {
+      "timestamp": "2026-06-26T12:18:43.326416",
+      "sentiment": "正面",
+      "description": "仪表盘终于修好了"
+    },
+    {
+      "timestamp": "2026-06-26T12:18:43.473340",
+      "sentiment": "正面",
+      "description": "nice 完美"
+    },
+    {
+      "timestamp": "2026-06-26T12:18:43.565321",
+      "sentiment": "负面",
+      "description": "不行换一个"
+    },
+    {
+      "timestamp": "2026-06-26T12:30:47.721105",
+      "sentiment": "负面",
+      "description": "这个太慢了不好用"
+    },
+    {
+      "timestamp": "2026-06-26T12:30:52.021831",
+      "sentiment": "正面",
+      "description": "nice 完美 厉害"
+    }
+  ],
+  "patterns": {},
+  "avoid": [],
+  "prefer": [],
+  "stats": {
+    "total_feedback": 6,
+    "positive": 4,
+    "negative": 2
+  }
+}

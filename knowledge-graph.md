@@ -54,6 +54,10 @@ metadata:
 | T08 | hook_stop.py | Stop hook — 自动健康检查 | hook, automation |
 | T09 | hook_prompt.py | UserPromptSubmit hook — 轻量检查 | hook, automation |
 | T10 | main.py | 主控脚本 — 一键入口 | controller, cli |
+| T11 | hook_session.py | SessionStart hook — 会话启动恢复 | hook, automation |
+| T12 | feedback_recorder.py | 反馈自动记录 — 加权关键词检测 | feedback, nlp |
+| T13 | status_dashboard.py | 状态仪表盘 — 一屏展示所有系统 | dashboard, overview |
+| T14 | 智能检测助手 | 电脑+AI 双健康实时仪表盘 | health, dashboard, realtime |
 
 ## 关联边
 
