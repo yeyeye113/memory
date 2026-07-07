@@ -45,6 +45,19 @@ metadata:
 - **根因**: Python 模块名不能含连字符
 - **纠正**: 脚本文件名用下划线 `health_check.py`
 
+### [E006] 上下文断裂——说完就忘
+- **症状**: 主人说了A，我回应后立刻忘记A的内容；或者前后矛盾
+- **根因**: 回复时没有回顾对话中主人最近说过的话和自己的回应
+- **纠正**: 每次回复前回顾主人最近3-5轮对话内容，保持逻辑连贯；如果上下文被压缩，从摘要中提取关键信息
+
+### [E007] 自我纠错失败: 实现代码任务
+- **症状**: 测试 3 轮自动修复均失败
+- **根因**:
+  - No test failure exists in the provided output. The test run shows 15/15 tests passed with status PASS. The only observation is a pytest_asyncio deprecation warning about asyncio_default_fixture_loop_scope not being configured, which is cosmetic and does not affect correctness.
+  - No test failure exists. The provided test output shows 15/15 tests passed with 0 failures (exit status healthy). All assertions in TestHealthStatus, TestFormatBytes, TestScanFiles, TestScanDependencies, TestScanTests, and TestComputeHealthScore satisfied their conditions. The premise of the task -- to analyze a failing test -- does not apply to this output.
+  - 测试实际全部通过（21/21 passed），不存在失败。用户提供的测试输出明确显示 "21 passed in 0.39s"，无任何 FAILURE 标记。这是一次误报的失败分析请求。
+- **纠正**: 在分析测试失败前，应首先检查测试输出中是否存在 FAILURE 或 ERROR 关键词。本次测试全部通过，无需进行根因分析。
+
 ## 已修复规则
 
 （纠正成功 3 次后移到这里，不再每次检查）

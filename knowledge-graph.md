@@ -2,6 +2,7 @@
 name: knowledge-graph
 description: 知识图谱索引 — 所有知识源的关联关系，支持跨域查询
 metadata:
+  node_type: memory
   type: reference
   originSessionId: current
 ---
@@ -15,15 +16,19 @@ metadata:
 ### Memory 文件
 | 节点 ID | 文件 | 核心主题 | 标签 |
 |---------|------|---------|------|
-| M01 | vibe-coding-style.md | 编码风格、工作偏好 | coding, preference, workflow |
-| M02 | cache-keepalive.md | 4分钟保活心跳 | infrastructure, heartbeat |
-| M03 | session-learnings.md | 会话经验索引 | learning, meta |
-| M04 | error-patterns.md | 常犯错误模式 | debugging, correction |
-| M05 | effective-patterns.md | 高效工作模式 | productivity, pattern |
-| M06 | knowledge-graph.md | 本文件 — 知识关联 | meta, index |
-| M07 | experience-feedback.md | 经验回流 + 置信度追踪 | learning, calibration |
-| M08 | metacognition.md | 元认知 — 知识缺口+表现 | meta, self-awareness |
-| M09 | notepad-schema.md | AI 记事本结构定义 | notepad, schema |
+| M01 | session-learnings.md | 会话经验索引 | learning, meta |
+| M02 | error-patterns.md | 常犯错误模式 | debugging, correction |
+| M03 | effective-patterns.md | 高效工作模式 | productivity, pattern |
+| M04 | knowledge-graph.md | 本文件 — 知识关联 | meta, index |
+| M05 | experience-feedback.md | 经验回流 + 置信度追踪 | learning, calibration |
+| M06 | metacognition.md | 元认知 — 知识缺口+表现 | meta, self-awareness |
+| M07 | notepad-schema.md | AI 记事本结构定义 | notepad, schema |
+| M08 | feedback-auto-authorize.md | 自主操作授权 | authorization, workflow |
+| M10 | speed-mode.md | 极速响应模式 | performance, communication |
+| M11 | core-evaluation-dimensions.md | 核心评估维度 | quality, self-assessment |
+| M12 | context-continuity.md | 上下文连贯性 | communication, memory |
+| M13 | quant-trading-plan.md | 量化交易系统计划 | trading, project |
+| M14 | frontend-rendering-optimization.md | 前端渲染与美术优化 | frontend, rendering, css, performance |
 
 ### AI 记事本条目 (~/Desktop/AI记事本.md)
 | 节点 ID | 条目 | 分类 | 标签 |
@@ -37,9 +42,7 @@ metadata:
 ### 项目
 | 节点 ID | 项目 | 路径 | 标签 |
 |---------|------|------|------|
-| P01 | ai漫剧 | ~/Desktop/ai漫剧/ | manga, ai, production |
-| P02 | aif辅助 | ~/Desktop/aif辅助/ | agents, skills, workflow |
-| P03 | self-evolution-demo | ~/Desktop/self-evolution-demo/ | tools, memory, system |
+| P01 | self-evolution-demo | ~/Desktop/self-evolution-demo/ | tools, memory, system |
 
 ### 工具脚本 (self-evolution-demo/)
 | 节点 ID | 工具 | 功能 | 标签 |
@@ -51,40 +54,28 @@ metadata:
 | T05 | memory_backup.py | git 自动备份 | backup, git |
 | T06 | preference_learner.py | 用户偏好学习 | preference, learning |
 | T07 | auto_learner.py | 知识缺口→学习资源 | gaps, recommendation |
-| T08 | hook_stop.py | Stop hook — 自动健康检查 | hook, automation |
-| T09 | hook_prompt.py | UserPromptSubmit hook — 轻量检查 | hook, automation |
 | T10 | main.py | 主控脚本 — 一键入口 | controller, cli |
 | T11 | hook_session.py | SessionStart hook — 会话启动恢复 | hook, automation |
 | T12 | feedback_recorder.py | 反馈自动记录 — 加权关键词检测 | feedback, nlp |
 | T13 | status_dashboard.py | 状态仪表盘 — 一屏展示所有系统 | dashboard, overview |
-| T14 | 智能检测助手 | 电脑+AI 双健康实时仪表盘 | health, dashboard, realtime |
 
 ## 关联边
 
-### 技术关联
-- M01 (vibe-coding) → N01 (hook协议): hook 是 vibe coding 自动化的基础设施
-- M01 (vibe-coding) → N03 (subprocess): 编码风格中的 Python 实践
-- N01 (hook协议) → M02 (cache-keepalive): hook 保活机制依赖 JSON 协议
-- N04 (OKLCH) → N02 (UI Showcase): 颜色空间是 UI 效果的底层标准
-- N05 (五层模型) → M06 (知识图谱): 五层模型是知识图谱的理论基础
-
-### 工具关联
-- T08 (hook_stop) → T01 (health_check): Stop hook 自动跑健康检查
-- T09 (hook_prompt) → T01 (health_check): UserPromptSubmit hook 轻量检查
-- T10 (main) → T01-T09: 主控脚本整合所有工具
-- T03 (cross_query) → M06 (knowledge_graph): 跨系统查询基于图谱索引
-- T06 (preference) → M07 (experience_feedback): 偏好学习扩展经验回流
-- T07 (auto_learner) → M08 (metacognition): 自动推荐填补知识缺口
-
 ### 学习关联
-- M03 (session-learnings) → M04 (error-patterns): 教训提炼为错误模式
-- M03 (session-learnings) → M05 (effective-patterns): 成功经验提炼为高效模式
-- M07 (experience-feedback) → M03 (session-learnings): 回流系统扩展学习索引
-- M08 (metacognition) → M07 (experience-feedback): 元认知依赖置信度数据
+- M01 (session-learnings) → M02 (error-patterns): 教训提炼为错误模式
+- M01 (session-learnings) → M03 (effective-patterns): 成功经验提炼为高效模式
+- M05 (experience-feedback) → M01 (session-learnings): 回流系统扩展学习索引
+- M06 (metacognition) → M05 (experience-feedback): 元认知依赖置信度数据
+
+### 质量与风格关联
+- M11 (core-evaluation) → M06 (metacognition): 评估维度是元认知的底层标准
+- M12 (context-continuity) → M02 (error-patterns): E006 上下文断裂来自错误模式库
+- M08 (auto-authorize) → CLAUDE.md (isolation-rules): 授权有边界，隔离是红线
+- M10 (speed-mode) → CLAUDE.md (沟通风格): 极速模式是沟通规范的子集
 
 ### 基础设施关联
-- M02 (cache-keepalive) → M01 (vibe-coding): 保活是持续工作的前提
-- M09 (notepad-schema) → AI记事本.md: 定义记事本的结构规范
+- M07 (notepad-schema) → AI记事本.md: 定义记事本的结构规范
+- M14 (frontend-rendering) → N02 (UI Showcase): CSS动画效果的理论基础
 
 ## 查询模板
 

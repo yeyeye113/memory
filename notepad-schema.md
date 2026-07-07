@@ -2,6 +2,7 @@
 name: notepad-schema
 description: AI 记事本结构定义 — 自动分类、关联、衰减的规范
 metadata:
+  node_type: memory
   type: reference
   originSessionId: current
 ---
@@ -107,26 +108,13 @@ conflict_rules:
     format: "⚠️ 一致性: 新条目 'X' 关联的 'Y' 已归档，请确认是否需要更新"
 ```
 
-## 查询接口
+## 查询方式
 
-```yaml
-# 查询模板
-queries:
-  - name: "按分类查"
-    pattern: "SELECT * FROM notepad WHERE category = '技术方案'"
-
-  - name: "按标签查"
-    pattern: "SELECT * FROM notepad WHERE tags CONTAINS 'hook'"
-
-  - name: "按时间查"
-    pattern: "SELECT * FROM notepad WHERE date > '2026-06-01'"
-
-  - name: "按状态查"
-    pattern: "SELECT * FROM notepad WHERE status = 'proven'"
-
-  - name: "按关联查"
-    pattern: "SELECT * FROM notepad WHERE related CONTAINS 'N01'"
-```
+- 按分类查：搜 `**分类**: 技术方案`
+- 按标签查：搜 `tag1, tag2`
+- 按时间查：搜 `### [2026-06-`
+- 按状态查：搜 `**状态**: proven`
+- 按关联查：搜 `related:N01`
 
 ## 更新规则
 

@@ -15,24 +15,20 @@ metadata:
 
 <!-- 格式: - [日期] 场景 → 错误行为 → 正确做法 -->
 
-- [2026-06-19] 初始化 — 尚无历史教训，待积累
-- [2026-06-19] 自迭代构建 — hook 的 stdin/stdout JSON 协议：读 stdin→处理→print JSON→exit 0
-- [2026-06-19] 自迭代构建 — 先审现状（Glob 全目录）再动手，避免盲目建重复的东西
-- [2026-06-19] Windows Python 脚本 — emoji 在 gbk 终端报 UnicodeEncodeError，用 ASCII 字符替代
-- [2026-06-25] settings.json 可能被外部重置 — 丢失 hooks/UserPromptSubmit/Stop 配置，Notification 恢复了但其他没配
-- [2026-06-25] Puppeteer 没装 Chrome 不可用 — 要截图先 npx puppeteer browsers install chrome
-- [2026-06-26] 交易预测数据被污染 — 51%准确率的脏数据要果断删，不保留垃圾知识
-- [2026-06-26] settings.json hooks 格式 — 必须是 `{matcher, hooks:[...]}` 嵌套，不是直接放 command
-- [2026-06-26] health-check 死链误判 — `../Desktop/xxx.md` 是跨目录引用，不算死链，需排除含 `..` 的路径
+- [2026-06-25] settings.json 被外部重置 — 丢失 hooks 配置，需备份检查
+- [2026-06-25] Puppeteer 没装 Chrome — 要截图先 npx puppeteer browsers install chrome
+- [2026-06-26] 脏数据污染 — 51%准确率的交易预测数据要果断删
+- [2026-06-26] hooks 格式 — 必须是 `{matcher, hooks:[...]}` 嵌套
+- [2026-06-26] 死链误判 — `../Desktop/xxx.md` 跨目录引用不算死链，排除含 `..` 的路径
 
 ## 有效模式 (从成功中学)
 
 <!-- 格式: - [日期] 场景 → 什么好使 → 为什么 -->
 
-- [2026-06-19] 初始化 — 尚无成功模式，待积累
-- [2026-06-19] 并行创建独立文件 — 3个memory文件+2个skill同时写，省一半时间
+- [2026-06-19] 并行创建独立文件 — 3个memory文件+2个skill同时写，省一半时间（已提炼→P001）
 - [2026-06-19] 先建数据结构(memory)→再建触发器(hook)→最后建接口(skill)，依赖清晰
-- [2026-06-26] 四系统并行构建 — 知识图谱+经验回流+元认知+记事本规范同时写，3轮完成
+- [2026-06-26] 四系统并行构建 — 知识图谱+经验回流+元认知+记事本规范同时写，3轮完成（已提炼→P005）
+- [2026-07-06] GLogger架构 — 静态类用单例+静态方法暴露，init()在main()最早调用用async，catch住永不阻启动；isolate写文件+NDJSON格式
 
 ## 更新规则
 
@@ -41,4 +37,4 @@ metadata:
 - 优先记：哪里卡了、什么解法出乎意料、主人纠正了什么
 - 每条一行，不超过 80 字
 
-**Related:** [[vibe-coding-style]] [[cache-keepalive]] [[experience-feedback]] [[metacognition]]
+**Related:** [[effective-patterns]] [[experience-feedback]] [[metacognition]]
